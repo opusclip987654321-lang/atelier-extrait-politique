@@ -1,0 +1,14 @@
+services:
+  atelier:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - atelier_data:/data
+    networks: [n8n_default]
+    mem_limit: 3g
+volumes:
+  atelier_data:
+networks:
+  n8n_default:
+    external: true
